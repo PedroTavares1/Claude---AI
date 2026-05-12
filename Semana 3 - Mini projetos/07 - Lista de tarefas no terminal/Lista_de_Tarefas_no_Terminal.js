@@ -24,6 +24,7 @@ function main() {
             } else if (escolha === "2") {
               // lista as tarefas e chama menu() de novo
                 console.log("\nTarefas:");
+                // "forEach" usado para percorrer a lista com número
                 tarefas.forEach((tarefa, index) => {
                     console.log(`${index + 1}. ${tarefa}`);
                 });

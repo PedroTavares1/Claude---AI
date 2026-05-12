@@ -19,6 +19,7 @@ def main():
                 print("Nenhuma tarefa encontrada.")
             else:
                 print("Tarefas:")
+                # "enumerate" usado para percorrer a lista com número
                 for idx, tarefa in enumerate(tarefas, start=1):
                     print(f"{idx}. {tarefa}")
 
