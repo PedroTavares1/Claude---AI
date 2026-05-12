@@ -11,7 +11,7 @@ def main():
 
         if escolha == "1":
             tarefa = input("Digite a tarefa: ")
-            tarefas.append(tarefa)
+            tarefas.append(tarefa) # "append" adicionam um item no final da lista.
             print("Tarefa adicionada!")
 
         elif escolha == "2":

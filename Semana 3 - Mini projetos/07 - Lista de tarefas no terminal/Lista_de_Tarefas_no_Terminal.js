@@ -17,7 +17,7 @@ function main() {
             if (escolha === "1") {
               // pede a tarefa e chama menu() de novo
               rl.question("Digite a tarefa: ", (tarefa) => {
-                  tarefas.push(tarefa);
+                  tarefas.push(tarefa); // "push" adiciona um item no final da lista.
                     console.log("Tarefa adicionada!");
                     menu(rl, tarefas);               
                 });
