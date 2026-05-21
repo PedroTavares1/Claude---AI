@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário Simples</title>   
+
+        <style>
+            .container {
+                display: flex;
+                justify-content: center; /*itens centralizados horizontalmente*/
+                align-items: center; /*itens centralizados verticalmente*/
+                gap: 20px; /*espaçamento entre os itens*/
+                height: 200px; /*altura do container para demonstrar o alinhamento vertical*/
+                background-color: lightgray;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+        </div>
+
+        <!-- 
+        Flex — fileira de cadeiras: (na direção escolhida, como linha ou coluna)
+            [cadeira] [cadeira] [cadeira] 
+
+        Grid — sala de cinema: (linhas e colunas ao mesmo tempo)
+            [cadeira] [cadeira] [cadeira]
+            [cadeira] [cadeira] [cadeira]
+            [cadeira] [cadeira] [cadeira]
+        -->
+        <!--
+        flex-direction: row → padrão, itens lado a lado (linha)
+        flex-direction: column → itens um embaixo do outro (coluna)
+        -->
+    </body>
+</html>
