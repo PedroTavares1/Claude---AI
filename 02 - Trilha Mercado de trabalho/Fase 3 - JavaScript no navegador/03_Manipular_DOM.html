@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minha Página</title> 
+
+        <style>
+
+        </style>
+    </head> 
+    <body>
+        <ul id="lista"></ul>
+        <button id="adicionar">Adicionar item</button>
+    
+        <script>
+            const botao = document.querySelector('#adicionar');
+            const lista = document.querySelector('#lista');
+
+            botao.addEventListener('click', function() {
+                const item = document.createElement('li');
+                item.textContent = 'Novo item';
+                lista.appendChild(item);
+                /*
+                document.createElement('li') → cria um novo elemento <li> na memória
+                item.textContent = 'Novo item' → define o texto desse <li>
+                lista.appendChild(item) → adiciona o <li> dentro do <ul>
+                */
+
+            });
+        </script>
+
+    </body>
+    
+</html>

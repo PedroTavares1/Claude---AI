@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minha Página</title> 
+
+        <style>
+
+        </style>
+    </head> 
+    <body>
+        <input id="campo" type="text" placeholder="Digite o item...">
+        <button id="adicionar">Adicionar</button>
+        <ul id="lista"></ul> <!-- ul é a lista, li é o item da lista -->
+
+        <script>
+            const botao = document.querySelector('#adicionar');
+            const lista = document.querySelector('#lista');
+
+            botao.addEventListener('click', function() {
+                const campo = document.querySelector('#campo');
+                const item = document.createElement('li');
+                if (campo.value !== '') {
+                    item.textContent = campo.value;
+                    lista.appendChild(item);
+                }
+                campo.value = '';  // limpa o campo após adicionar
+                
+                /*
+                document.createElement('li') → cria um novo elemento <li> na memória
+                item.textContent = 'Novo item' → define o texto desse <li>
+                lista.appendChild(item) → adiciona o <li> dentro do <ul>
+                */
+
+            });
+        </script>
+
+    </body>
+    
+</html>
