@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minha Página</title>
+        <!--  index.html → estrutura
+               style.css → estilo
+               script.js → comportamento
+        -->
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <h1 id="titulo">Olá, mundo!</h1>
+        <!-- HTML: o botão -->
+            <button onclick="mudarTitulo()">Clica aqui!</button>
+        <!--              ↑ chama essa função quando clicado -->
+
+        <!-- JS: a função -->
+        <script>
+            function mudarTitulo() {  /* ← função com esse nome */
+                document.querySelector('#titulo').textContent = 'Você clicou!';
+             /*  # → significa que está buscando por id
+                 . → significa que está buscando por class 
+             */     
+            }
+        </script>
+    </body>
+</html>
