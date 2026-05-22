@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eventos</title>
+        <style>
+            
+        </style>
+        
+    </head>
+    <body>
+        <h1 id="titulo">Olá, mundo!</h1>
+        <button id="botao">Clica aqui!</button>                    
+    </body>
+
+    <script>
+        const botao = document.querySelector('#botao');
+        
+        botao.addEventListener('click', function() {
+            document.querySelector('#titulo').textContent = 'Você clicou!';
+        });
+    </script>
+    <!--    
+        'click'     → quando clica
+        'mouseover' → quando passa o mouse em cima
+        'mouseout'  → quando tira o mouse
+        'keypress'  → quando pressiona uma tecla
+        'submit'    → quando envia um formulário
+        'load'      → quando a página termina de carregar
+    -->
+</html>
