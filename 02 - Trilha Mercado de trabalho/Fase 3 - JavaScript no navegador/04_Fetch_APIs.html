@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minha Página</title>
+
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        
+        <p id="piada"></p>
+
+        <script>
+            fetch('https://official-joke-api.appspot.com/random_joke')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.querySelector('#piada').textContent = data.setup + ' - ' + data.punchline;
+                    //data = {
+                    //type: 'general',
+                    //setup: 'pergunta...',
+                    //punchline: 'resposta!',
+                    //id: 424
+                    //        }
+                });
+                //O que é esse site? É uma API pública gratuita que retorna piadas aleatórias em inglês.
+                // Qualquer pessoa pode usar — é como um serviço aberto na internet!
+        </script>
+
+    </body>
+
+    <!--
+    1 — Que site é esse?
+        É uma API pública gratuita que retorna piadas aleatórias em inglês. 
+        Qualquer pessoa pode usar — é como um serviço aberto na internet!
+
+    2 — .then pode ser usado em outros casos?
+        Sim! O .then é usado sempre que você tem uma operação assíncrona — não só fetch.
+        É o jeito de dizer: "quando terminar, faz isso".
+
+    3 — response pode ser qualquer nome?
+        Sim! É só um parâmetro — igual aos que vimos antes:
+        .then(response => response.json())
+        .then(qualquerNome => qualquerNome.json())  // funciona igual!
+
+    4 — Se tiver 2 APIs, teria 2 .then?
+        Cada fetch tem seus próprios .then:
+        javascriptfetch('api1.com').then(r => r.json()).then(data => { });
+        fetch('api2.com').then(r => r.json()).then(data => { });
+
+    5 — Por que { } no final?
+        As chaves são o corpo da função — onde você escreve o que fazer com os dados depois que chegarem!
+
+    6 — Assíncrono é paralelo?
+        Quase! Não é exatamente paralelo — é mais como:
+        "Faz o pedido, continua fazendo outras coisas, e quando o pedido chegar executa o .then"
+        É como pedir uma pizza — você não fica parado esperando, continua fazendo outras coisas. Quando chegar, você atende a porta!
+
+-->
+</html>
