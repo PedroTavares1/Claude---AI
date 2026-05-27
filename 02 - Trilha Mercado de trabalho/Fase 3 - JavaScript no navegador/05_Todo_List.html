@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <!-- monte tudo primeiro, depois coloque no lugar. -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>05 - Todo List</title>
+        <!-- DOM é o Document Object Model — é a representação do HTML 
+        em forma de objetos que o JS pode manipular. 
+        Quando o navegador lê seu HTML, ele cria uma árvore de objetos
+        na memória — isso é o DOM! -->
+
+        <style>
+            body {
+                color: #000000;
+                background-color: #aaaaaa4f;
+                text-align: center;
+            }
+            #campoTarefa {
+                text-align: center;
+                padding: 3px 50px;
+                width: 200px;
+                font-size: 16px;
+                vertical-align: middle;
+                border-radius: 8px;  /* arredonda os cantos */
+
+            }
+            #botaoAdicionar {
+                padding: 4px 10px;
+                font-size: 16px;
+                margin-left: 10px;
+                cursor: pointer;
+                vertical-align: middle;
+                color: #ffffff;
+                background-color: #1b7300;
+                border-radius: 8px;  /* arredonda os cantos */
+            }
+            li {
+                padding: 10px;
+                font-size: 18px;
+                align-items: center; /* alinha o texto verticalmente */
+                list-style-type: none; /* remove os marcadores padrão */
+                color: #000000;
+                background-color: #ffffff;
+                display: flex; /* para alinhar o texto e o botão na mesma linha */
+                justify-content: space-between; /* espaço entre o texto e o botão */
+                margin: 10px auto; /* centraliza a lista e adiciona espaçamento entre os itens */
+                width: 300px; /* largura fixa para os itens da lista */
+                border-radius: 8px;  /* arredonda os cantos */
+                
+            }
+
+            /* 
+                body → fonte, cor de fundo, centralizar o conteúdo
+                h1 → cor, tamanho
+                input → largura, padding, borda
+                button → cor de fundo, cor do texto, padding
+                li → padding, separação entre os itens 
+            */
+        </style>
+    </head>
+    <body>
+        <h1>Todo List</h1>
+        <h2>Mini projeto para praticar o que vimos até agora!</h2>
+        <!--
+            Tarefas:
+                Campo para digitar a tarefa
+                Botão para adicionar
+                Lista com as tarefas
+                Botão para deletar cada tarefa
+                Estilo bonito com CSS
+        -->
+
+        <!-- querySelector → encontra o que já existe -->
+        <!-- createElement → cria algo novo -->
+         
+        <input type="text" id="campoTarefa" placeholder="Digite a tarefa">
+        <button id="botaoAdicionar">Adicionar tarefa</button>
+        <ul id="lista"></ul>
+
+        <script>
+            const botaoAdicionar = document.querySelector('#botaoAdicionar');
+            const lista = document.querySelector('#lista');
+                                // querySelector busca algo que você 
+                                // já escreveu no HTML
+
+            botaoAdicionar.addEventListener('click', function() {
+                const campoTarefa = document.querySelector('#campoTarefa');
+                const tarefa = campoTarefa.value.trim();
+                if (tarefa !== '') {
+                    const item = document.createElement('li');
+                    item.textContent = tarefa;
+
+                    const botaoDeletar = document.createElement('button');
+                    botaoDeletar.textContent = 'Deletar';
+                    botaoDeletar.addEventListener('click', function() {
+                        lista.removeChild(item);
+                    });
+
+                    item.appendChild(botaoDeletar);
+                    lista.appendChild(item);
+                }
+                campoTarefa.value = '';
+            });
+
+
+        </script>
+    </body>
+</html>
