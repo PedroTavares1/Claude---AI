@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
-
-
-
 
 function App() {
   const [contador, setContador] = useState(0)
-  
-    function incrementar() {
+
+  function incrementar() {
     setContador(contador + 1)
   }
+  
+  useEffect(() => {
+    console.log('Contador mudou para:', contador)
+  }, [contador])
 
   return (
     <div>
@@ -18,16 +19,6 @@ function App() {
       <button onClick={() => setContador(0)}>Zerar</button>
     </div>
   )
-
-    
-    
 }
-  // variável normal - muda mas a tela não atualiza
-  // let contador = 0
-  // contador = contador + 1  // React não sabe
-
-  // useState - muda e a tela atualiza automaticamente
-  // const [contador, setContador] = useState(0)
-  // setContador(contador + 1)  // React sabe e atualiza!
 
 export default App
