@@ -25,8 +25,8 @@ function ListaDeTarefas() {
   return (
     <div>
       <h1>Lista de Tarefas</h1>
-      <input 
-        type="text"
+      <input //Caixa de texto para nova tarefa
+        type="text" //
         value={novaTarefa}
         onChange={(e) => setNovaTarefa(e.target.value)}
         placeholder="Digite uma nova tarefa"
