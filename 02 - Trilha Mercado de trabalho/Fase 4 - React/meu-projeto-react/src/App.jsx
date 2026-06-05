@@ -1,37 +1,65 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { useState } from 'react'
 import './App.css'
 
-function Inicio() {
+function ListaDeTarefas() {
+  const [tarefas, setTarefas] = useState([]) //Lista de tarefas
+  const [novaTarefa, setNovaTarefa] = useState('') //Texto da nova tarefa
+  // useState([]) → lista começa vazia
+  // useState('') → texto começa vazio
+  
+  function adicionarTarefa() {
+    if (novaTarefa.trim() !== '') { // Verifica se o texto não está vazio
+      setTarefas([...tarefas, { texto: novaTarefa, concluida: false }]) // Adiciona nova tarefa à lista
+      setNovaTarefa('') // Limpa o campo de entrada após adicionar a tarefa
+    }
+  }
+  function deletarTarefa(index) {
+    setTarefas(tarefas.filter((_, i) => i !== index))
+  }
+  function concluirTarefa(index) {
+    setTarefas(tarefas.map((tarefa, i) => 
+        i === index ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
+    ))
+  }
+
   return (
     <div>
-      <h1>Página Inicial</h1>
-      <p>Bem-vindo ao meu app!</p>
+      <h1>Lista de Tarefas</h1>
+      <input 
+        type="text"
+        value={novaTarefa}
+        onChange={(e) => setNovaTarefa(e.target.value)}
+        placeholder="Digite uma nova tarefa"
+      />
+      <button onClick={adicionarTarefa}>Adicionar</button>
+      
+      <ul>
+        {tarefas.map((tarefa, index) => (
+          <li 
+              key={index}
+              onClick={() => concluirTarefa(index)}
+            >
+              <span style={{ textDecoration: tarefa.concluida ? 'line-through' : 'none' }}>
+                  {tarefa.texto}
+              </span>
+              <button onClick={(e) => {
+                  e.stopPropagation()
+                  deletarTarefa(index)
+              }}>Deletar</button>
+          </li>
+        ))}
+      </ul>
+      
     </div>
   )
 }
 
-function Sobre() {
-  return (
-    <div>
-      <h1>Sobre</h1>
-      <p>Esta é a página sobre.</p>
-    </div>
-  )
-}
-
-function App() {
-  return (
-    <BrowserRouter>
-      <nav>
-        <Link to="/">Início</Link>
-        <Link to="/sobre">Sobre</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/sobre" element={<Sobre />} />
-      </Routes>
-    </BrowserRouter>
-  )
+function App() { 
+  return (<div>
+    {<ListaDeTarefas />}
+  </div>
+)
+  
 }
 
 export default App

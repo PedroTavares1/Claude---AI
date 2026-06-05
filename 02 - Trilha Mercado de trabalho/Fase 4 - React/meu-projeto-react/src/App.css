@@ -8,3 +8,39 @@ nav {
     padding: 10px;
     justify-content: center;
 }
+
+#setNovaTarefa {
+  text-align: center;
+  padding: 3px 50px;
+  width: 200px;
+  font-size: 16px;
+  vertical-align: middle;
+  border-radius: 8px;  /* arredonda os cantos */
+
+}
+#adicionarTarefa {
+  padding: 4px 10px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  vertical-align: middle;
+  color: #ffffff;
+  background-color: #1b7300;
+  border-radius: 8px;  /* arredonda os cantos */
+}
+
+li {
+  padding: 10px;
+  font-size: 18px;
+  align-items: center; /* alinha o texto verticalmente */
+  list-style-type: none; /* remove os marcadores padrão */
+  color: #000000;
+  background-color: #ffffff;
+  display: flex; /* para alinhar o texto e o botão na mesma linha */
+  justify-content: space-between; /* espaço entre o texto e o botão */
+  margin: 10px auto; /* centraliza a lista e adiciona espaçamento entre os itens */
+  width: 300px; /* largura fixa para os itens da lista */
+  border-radius: 8px;  /* arredonda os cantos */
+                
+}
+
